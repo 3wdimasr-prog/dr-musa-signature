@@ -21,7 +21,7 @@ function buildBookingUrl(name, phone, branch, interest) {
   const shortMedia = matchMedia('(max-height: 480px)');
   const chapters = [
     {label:'أولًا / الهدف', title:'ما الذي ترغب في تغييره؟', copy:'نبدأ بما يشغلك، وما تتطلّع إليه. الاستشارة مساحة لطرح أسئلتك وتوضيح توقعاتك.', tags:['احتياجك','توقعاتك','أسئلتك']},
-    {label:'ثانيًا / التقييم', title:'نفهم الحالة، قبل الخيارات.', copy:'التاريخ الصحي والفحص الطبي أساس معرفة ما يناسب حالتك. لا تُحدَّد الخطة من صورة أو رغبة وحدها.', tags:['التاريخ الصحي','الفحص الطبي','ملاءمة الإجراء']},
+    {label:'ثانيًا / التقييم', title:'نفهم الحالة، قبل الخيارات.', copy:'يستمع الطبيب إلى تاريخك الصحي ويقيّم حالتك، لتحديد الخيارات التي تناسب احتياجك.', tags:['التاريخ الصحي','الفحص الطبي','ملاءمة الإجراء']},
     {label:'ثالثًا / الخيارات', title:'كل خيار له تفاصيله.', copy:'تُناقَش البدائل والمخاطر وفترة التعافي المتوقعة، لتفهم ما يترتب على الإجراء قبل اتخاذ القرار.', tags:['البدائل','المخاطر','التعافي']},
     {label:'أخيرًا / الخطة', title:'تجتمع الصورة. ويتّضح القرار.', copy:'تتّضح الخطوات وفق تقييم الطبيب، وتتخذ قرارك بعد فهم التفاصيل. البداية دائمًا باستشارة مباشرة.', tags:['خطة وفق التقييم','توقعات واقعية','قرار مدروس']}
   ];
@@ -294,7 +294,7 @@ function buildBookingUrl(name, phone, branch, interest) {
       });
       const front=zsum/line.points.length;
       const alpha=(front>0?.52:.2)*(.3+.7*ease);
-      context.strokeStyle=`rgba(${line.part===0?'218,195,151':'115,164,153'},${alpha})`;
+      context.strokeStyle=`rgba(${line.part===0?'213,180,119':'160,160,166'},${alpha})`;
       context.lineWidth=.6+(front>15?.3:0);
       context.stroke();
     }
@@ -302,13 +302,13 @@ function buildBookingUrl(name, phone, branch, interest) {
     const halo=clamp((t-.48)*2);
     if(halo>0) {
       context.beginPath();context.ellipse(cx,cy+68*scale,171*scale,201*scale,.22,0,Math.PI*2*halo);
-      context.strokeStyle=`rgba(222,193,148,${halo*.27})`;context.lineWidth=1;context.stroke();
+      context.strokeStyle=`rgba(213,180,119,${halo*.27})`;context.lineWidth=1;context.stroke();
     }
     // Fixed reference markers are artwork, never clinical landmark coordinates.
     const points=[{x:-43,y:-54,z:78},{x:28,y:-48,z:83},{x:0,y:30,z:86},{x:0,y:145,z:55}];
     points.slice(0,currentChapter+1).forEach(p => {
-      const q=transform(p);context.beginPath();context.arc(q.x,q.y,2.6*scale,0,Math.PI*2);context.fillStyle='#ddc298';context.fill();
-      context.beginPath();context.arc(q.x,q.y,9*scale,0,Math.PI*2);context.strokeStyle='#ddc29850';context.stroke();
+      const q=transform(p);context.beginPath();context.arc(q.x,q.y,2.6*scale,0,Math.PI*2);context.fillStyle='#d5b477';context.fill();
+      context.beginPath();context.arc(q.x,q.y,9*scale,0,Math.PI*2);context.strokeStyle='#d5b47750';context.stroke();
     });
   }
   let queued=false;
